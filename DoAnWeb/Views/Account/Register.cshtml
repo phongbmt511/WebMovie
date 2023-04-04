@@ -1,0 +1,44 @@
+﻿@model DoAnWeb.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/View_layout.cshtml";
+}
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="Logout_container">
+        <div class="Logout">
+            <form class="logout-form">
+                @Html.AntiForgeryToken()
+                <h4 class="logout-title">Create a new account</h4>
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div>
+                    @Html.LabelFor(m => m.Email, new { @class = " control-label" })
+                    <div style="margin-top:10px">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                    <div style="margin-top:10px">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                    <div style="margin-top:10px">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div>
+                    <div style="margin-top:20px">
+                        <input type="submit" class="btn btn--form" value="Register" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

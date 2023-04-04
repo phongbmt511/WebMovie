@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <h4 class="logo" style="color: white; padding-top: 5px; font-family: fantasy ;margin-right:23px"><span style="color: #ea1538">Mo</span>vie</h4>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>
+                        <div>
+                            @using (Html.BeginForm())
+                            {
+                                <div class="form-group form-inline" style="margin-left:350px;padding-top:7px">
+                                    @Html.TextBox("SearchString", "", new { @class = "form-control" })
+                                    <input type="submit" class="btn btn-danger" value="Search"  style="font-size:14px;border-radius:2px"/>
+                                </div>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+            
+        </div>
+    </div>
+    <div class="Full body-content">
+        @RenderBody()
+        <footer class="footer">
+            <div class="cont">
+                <div class="row">
+                    <div>
+                        <h2>Website Movie</h2>
+                        <p>
+                            Đây là trang web xem phim có thể giúp mọi người thư giản mỗi khi
+                            stress !!!
+                        </p>
+                    </div>
+                    <div>
+                        <h4>Tin tức</h4>
+                        <ul>
+                            <li><a href="#">Phim</a></li>
+                            <li><a href="#">Diễn viên</a></li>
+                            <li><a href="#">Đạo diễn</a></li>
+                            <li><a href="#">Thể loại</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Thông tin</h4>
+                        <ul>
+                            <li><a href="~/Home/Contact">Nhóm 1</a></li>
+                            <li><a href="#">Địa chỉ : HCM</a></li>
+                            <li><a href="#">SDT : 0123456789</a></li>
+                            <li><a href="#">Gmail : hhh@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Liên hệ</h4>
+                        <div class="socialButton">
+                            <a><i class="fa-brands fa-instagram"></i></a>
+                            <a><i class="fa-brands fa-square-facebook"></i></a>
+                            <a><i class="fa-brands fa-square-twitter"></i></a>
+                            <a><i class="fa-brands fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Welcome to Movie</p>
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+<script src="~/Scripts/App.js"></script>
+</body>
+</html>

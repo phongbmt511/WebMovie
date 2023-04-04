@@ -1,0 +1,67 @@
+﻿@model DoAnWeb.Models.Staff_
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/View_layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Staff_</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.staffName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staffName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staffPhotoLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staffPhotoLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C_movie.movieName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_movie.movieName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.staffid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

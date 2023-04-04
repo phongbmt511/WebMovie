@@ -1,0 +1,76 @@
+﻿@model IEnumerable<DoAnWeb.Models.C_movie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/View_layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.movieName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.movieContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.premiereDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.moviePhotoLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.banerLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trailerLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category.categoryName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.movieName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.movieContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.premiereDate)
+        </td>
+        <td style="max-width: 10vw; overflow: hidden; text-overflow: ellipsis">
+            @Html.DisplayFor(modelItem => item.moviePhotoLink)
+        </td>
+        <td style="max-width: 10vw;overflow:hidden;text-overflow:ellipsis">
+            @Html.DisplayFor(modelItem => item.banerLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trailerLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.review)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.categoryName)
+        </td>
+        <td style="width:150px;">
+            @Html.ActionLink("Edit", "Edit", new { id=item.movieId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.movieId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.movieId })
+        </td>
+    </tr>
+}
+
+</table>

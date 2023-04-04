@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+@model  DoAnWeb.Models.C_movie
+
+@foreach (var c in ViewBag.Movie)
+{
+    foreach (var d in ViewBag.TT)
+    {
+        if (c.movieid == d.categoryid)
+        {
+            <div class="play-container container" style="margin-top:55px">
+                <img src="@d.banerLink"
+                     class="play-img" />
+                <div class="play-text">
+                    <h2 style="color:white">@d.movieName</h2>
+                    <div class="rating">
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <div class="tags">
+                        <span>Tình cảm</span>
+                        <span>Kinh dị</span>
+                        <span>4K</span>
+                    </div>
+                    <a href="@d.trailerLink" class="watch-btn">
+                        <span>Watch the trailer</span>
+                    </a>
+                </div>
+                <i class="fa-solid fa-play play-movie"></i>
+                <div class="video-container">
+                    <div class="video-box">
+                        <iframe id="myvideo" src="@d.trailerLink" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <i class="fa-solid fa-xmark close-video" style="color:white;font-size:30px"></i>
+                    </div>
+                </div>
+            </div>
+        }
+        if (c.movieid == d.categoryid)
+        {
+            <div class="about-movie container">
+                <h2>Nội dung phim</h2>
+                <p>
+                    @d.movieContent
+                </p>
+                <h2 class="cast-heading">Đạo diễn</h2>
+                <div class="cast">
+                    <div class="cast-box">
+                        <img src="@c.staffPhotoLink"
+                             class="cast-img" style="margin-bottom:10px"/>
+                        <span class="cast-title">@c.staffName</span>
+                    </div>
+
+                </div>
+            </div>
+        }
+    }
+}
+<div class="download">
+    <h2 class="download-title">Download Movie</h2>
+    <div class="download-links">
+        <a href="#" download>480p</a>
+        <a href="#" download>720p</a>
+        <a href="#" download>1080p</a>
+    </div>
+</div>
+

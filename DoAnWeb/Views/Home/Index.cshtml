@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@model List<DoAnWeb.Models.C_movie>
+
+
+
+
+<div class="Movie_body">
+    <div class="hero"></div>
+    <h2 style="color: white; text-align: center;">Phim hot</h2>
+    <header class="List_movie">
+        @foreach (var c in Model)
+        {
+            <a href="~/Home/About/@c.categoryid">
+                <div class="bx">
+                    <img src="@c.moviePhotoLink" />
+                    <div class="content">
+                        <h3>@c.movieName</h3>
+                        <h6> <span>IMDB </span><i class="fa-solid fa-star"></i> @c.review </h6>
+                    </div>
+                </div>
+            </a>
+        }
+    </header>
+</div>
